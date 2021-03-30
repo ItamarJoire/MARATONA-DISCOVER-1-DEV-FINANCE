@@ -9,9 +9,26 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 93.75%; /* 15px */
+}
+
 body{
     background: #f0f2f5;
     font-family: 'Poppins', sans-serif;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .container{
@@ -28,6 +45,21 @@ h2{
 }
 
 
+/* Links and Buttons */
+a{
+    text-decoration: none;
+    color: #49aa26;
+
+}
+
+a:hover{
+    color: #3dd705;
+}
+
+.button.new{
+    display: inline-block;
+    margin-bottom: .8rem;
+}
 
 /* Header */
 header{
@@ -70,6 +102,10 @@ header{
 .card h3{
     font-weight: normal;
     font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card p{
@@ -86,6 +122,12 @@ header{
 }
 
 /* Table */
+#transaction{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
 #data-table{
     width: 100%;
     border-spacing: 0 .5rem;
@@ -95,6 +137,11 @@ header{
 table thead tr td:first-child,
 table tbody tr td:first-child{
     border-radius: .25rem 0 0 .25rem;
+}
+
+table thead tr td:last-child,
+table tbody tr td:last-child{
+    border-radius: 0 .25rem .25rem 0;
 }
 
 
@@ -133,6 +180,36 @@ td.expense{
     color: #e92929;
 }
 
+
+/* Modal */
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal{
+    padding: 2.4rem;
+    background: #f0f2f5;
+
+}
+
 /* Footer */
 footer{
     text-align: center;
@@ -141,4 +218,17 @@ footer{
 
     color: var(--dark-blue);
     opacity: .6;
+}
+
+/* Responsive */
+@media(min-width: 800px){
+    html{
+        font-size: 87.5%; /* */
+    }
+
+    #balance{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;    
+    }
 }
